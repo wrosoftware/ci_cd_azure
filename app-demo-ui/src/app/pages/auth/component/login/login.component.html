@@ -1,0 +1,8 @@
+<p-toast key="login"></p-toast>
+<app-auth-form (onSignIn)="login($event)"
+               (onOpenRegister)="switchToRegister()"
+               ngClass="{{mode === LoginMode.SIGN_IN ? '' : 'hidden'}}"/>
+<app-register-form
+               (onRegistered)="onRegistered($event)"
+               (onCancel)="cancelRegister()"
+               ngClass="{{mode === LoginMode.REGISTRATION ? '' : 'hidden'}}"/>

@@ -1,0 +1,35 @@
+.auth-form-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    .p-input {
+        width: 100%;
+        margin-top: 1.2em;
+
+        input {
+            background-color: white;
+        }
+    }
+
+    .login-register-container {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+.login-with-container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.facebook-login-btn {
+    radius: 50%;
+    position:relative;
+    i {
+        font-size: 1.6em;
+        color: #0866FF;
+    }
+}
+

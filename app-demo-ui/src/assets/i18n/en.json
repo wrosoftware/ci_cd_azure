@@ -1,0 +1,73 @@
+{
+    "common": {
+        "next": "Next",
+        "save": "Save",
+        "cancel": "Cancel",
+        "person": "Individual",
+        "company": "Company",
+        "error": "Coś poszło nie tak :("
+    },
+    "login": {
+        "login": "Login or email",
+        "password": "Password",
+        "google": "Google",
+        "facebook": "Facebook",
+        "identityProviderOption": "or sign in using your account",
+        "loginBtn": "Sign in",
+        "registerBtn": "Register",
+        "error": {
+            "required": "Required",
+            "wrongLoginOrPassword": "Incorrect login or password"
+        }
+    },
+    "registration": {
+        "title": "Registration",
+        "accountType": "Account type",
+        "individualData": "Individual data",
+        "companyData": "Company data",
+        "loginData": "Sing in data",
+        "email": "Email",
+        "password": "Password",
+        "repeatPassword": "Repeat password",
+        "accountType": "Account type",
+        "error": {
+            "matchPassword": "Password fields must match"
+        }
+    },
+    "uploadContract": {
+        "call": "Check your contract!",
+        "uploadFile": "Upload Files",
+        "dragAndDrop": "Drop or select files",
+        "description": "Description",
+        "descriptionPlaceholder": "If we need pay attantion of something, here you can describe it",
+
+        "chooseClientHeader": "Choose user",
+        "clientTypeHeader": "Choose how you want to continue",
+        "clientTypeHeaderDesc1": "Are you acting as an individual or representing a company?",
+        "clientTypeHeaderDesc2": "Select the right option to tailor the process to your needs",
+
+        "loginHeader": "Log in to access all your analyses",
+        "loginHeaderDesc1": "By logging in, you’ll have access to all your analyses, including past ones.",
+        "loginHeaderDesc2": "Track progress and revisit previous results anytime!",
+        "continueAsGuest": "I prefer to continue as a guest",
+
+        "firstname": "First name",
+        "surname": "Last name",
+        "phone": "Phone",
+        "email": "Email"
+    },
+
+    "person": {
+        "name": "First name",
+        "surname": "Last name"
+    },
+    "company": {
+        "name": "Company name",
+        "nip": "NIP",
+        "headquater": "Company headquaters",
+        "city": "City",
+        "street": "Street",
+        "zipCode": "Zip code",
+        "homeNumber": "Home / Flat number"
+    }
+}

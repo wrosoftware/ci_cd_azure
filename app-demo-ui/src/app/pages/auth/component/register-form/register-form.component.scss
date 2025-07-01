@@ -1,0 +1,53 @@
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.p-error {
+    height: 0.9em;
+    min-height: 0.9em;
+}
+
+.p-input {
+    width: 100%;
+    margin-top: 1.2em;
+
+    input {
+        width: 100%;
+        background-color: white;
+    }
+
+    ::ng-deep .p-password {
+        width: 100% !important;
+        input {
+            width: 100%;
+            background-color: white;
+        }
+    }
+}
+
+.client-type-input-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    i {
+        font-size: 1.4em;
+    }
+}
+
+.address-container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0.8em;
+}
+
+.register-btn-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    button {
+        margin-left: 1em;
+    }
+}

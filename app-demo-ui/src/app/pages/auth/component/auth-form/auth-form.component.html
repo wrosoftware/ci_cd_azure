@@ -1,0 +1,84 @@
+<div class="auth-form-container" >
+    <form [formGroup]="signInForm">
+        <span class="p-input p-input-icon-left mb-4">
+            <p-inputGroup>
+                <p-inputGroupAddon>
+                    <i class="pi pi-user"></i>
+                </p-inputGroupAddon>
+                <span class="p-float-label">
+                    <input id="user-login-input" pInputText
+                           type="text"
+                           name="login"
+                           autocomplete="login"
+                           formControlName="login"
+                           ngClass="{{signInForm.get('login')?.errors && validated ? 'ng-dirty ng-invalid': ''}}">
+                    <label for="user-login-input">{{'login.login' | translate}}</label>
+                </span>
+            </p-inputGroup>
+            <div class="p-error">
+                <span *ngIf="signInForm.get('login')?.hasError('required') && validated">*{{'login.error.required' | translate}}</span>
+            </div>
+        </span>
+
+        <span class="p-input p-input-icon-left mb-4">
+            <p-inputGroup>
+                <p-inputGroupAddon>
+                    <i class="pi pi-key"></i>
+                </p-inputGroupAddon>
+                <span class="p-float-label">
+                    <input id="user-password-input" pInputText
+                           type="password"
+                           name="password"
+                           autocomplete="password"
+                           formControlName="password"
+                           ngClass="{{signInForm.get('password')?.errors && validated ? 'ng-dirty ng-invalid': ''}}">
+                    <label for="user-password-input">{{'login.password' | translate}}</label>
+                </span>
+            </p-inputGroup>
+            <div class="p-error">
+              <span *ngIf="signInForm.get('password')?.hasError('required') && validated">*{{'login.error.required' | translate}}</span>
+            </div>
+        </span>
+    </form>
+    <div class="login-register-container">
+        <button class="mb-4"
+                pButton pRipple
+                (click)="signIn()"
+                label="{{'login.loginBtn' | translate}}"></button>
+        <button class="mb-4"
+                pButton pRipple
+                (click)="signUpp()"
+                label="{{'login.registerBtn' | translate}}"></button>
+    </div>
+    <div class="p-error">
+        <span *ngIf="error">*{{error | translate}}</span>
+    </div>
+    <span class="text-color-secondary text-center mb-4">{{'login.identityProviderOption' | translate}}</span>
+
+
+
+    <div class="flex gap-4 align-items-center justify-content-center login-with-container">
+<!--        <a (click) = "loginWithGoogle()" style="cursor: pointer;"-->
+<!--           class="inline-flex flex-shrink-0 w-3rem h-3rem justify-content-center align-items-center surface-ground border-circle">-->
+<!--            <img src="https://developers.google.com/identity/images/g-logo.png"-->
+<!--                 alt="Google Login"-->
+<!--                 width="40"-->
+<!--                 height="40"-->
+<!--                 >-->
+<!--        </a>-->
+        <div id="google-login-btn"></div>
+<!--        <div class="facebook-login-btn"  (click)="loginWithFacebook()">-->
+<!--            <i class="pi pi-facebook"></i> Zaloguj przez Facebook-->
+<!--        </div>-->
+
+<!--        <a href="https://www.facebook.com" class="inline-flex flex-shrink-0 w-3rem h-3rem justify-content-center align-items-center surface-ground border-circle">-->
+<!--            <i class="pi pi-facebook text-2xl text-color"></i>-->
+<!--        </a>-->
+<!--        <a href="https://www.twitter.com" class="inline-flex flex-shrink-0 w-3rem h-3rem justify-content-center align-items-center surface-ground border-circle">-->
+<!--            <i class="pi pi-twitter text-2xl text-color"></i>-->
+<!--        </a>-->
+<!--        <a href="https://www.github.com" class="inline-flex flex-shrink-0 w-3rem h-3rem justify-content-center align-items-center surface-ground border-circle">-->
+<!--            <i class="pi pi-github text-2xl text-color"></i>-->
+<!--        </a>-->
+    </div>
+</div>

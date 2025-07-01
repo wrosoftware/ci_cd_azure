@@ -1,0 +1,172 @@
+<h5>{{'registration.title' | translate}}</h5>
+
+<!-- typ konta -->
+<div class="card">
+    <h6>{{'registration.accountType' | translate}}</h6>
+    <div class="client-type-input-container">
+        <div>
+            <span>{{'common.person' | translate}}</span>
+            <i class="fa-solid fa-user-tie" style="padding-left: 0.4em"></i>
+        </div>
+        <p-inputSwitch [(ngModel)]="asCompany"></p-inputSwitch>
+        <div>
+            <i class="fa-solid fa-building" style="padding-right: 0.4em"></i>
+            <span>{{'common.company' | translate}}</span>
+        </div>
+    </div>
+</div>
+
+<!-- dane osobowe - individual -->
+<div class="card">
+    <h6 style="margin-bottom: 0">{{'registration.individualData' | translate}}</h6>
+    <div class="container">
+        <form [formGroup]="signUpIndividualForm">
+            <span class="p-float-label p-input ">
+                <input id="user-name-input" pInputText
+                       type="text"
+                       name="name"
+                       formControlName="name">
+                <label for="user-name-input">{{'person.name' | translate}}</label>
+            </span>
+            <div class="p-error">
+                <span *ngIf="signUpIndividualForm.get('name')?.hasError('required') && validated">*{{'login.error.required' | translate}}</span>
+            </div>
+
+            <span class="p-float-label p-input ">
+                <input id="user-surname-input" pInputText
+                       type="text"
+                       name="surname"
+                       formControlName="surname">
+                <label for="user-surname-input">{{'person.surname' | translate}}</label>
+            </span>
+            <div class="p-error">
+                <span *ngIf="signUpIndividualForm.get('surname')?.hasError('required') && validated">*{{'login.error.required' | translate}}</span>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- dane firmy -->
+<div class="card" ngClass="{{asCompany? '': 'hidden'}}">
+    <h6  style="margin-bottom: 0">{{'registration.companyData' | translate}}</h6>
+    <div class="container">
+        <form [formGroup]="signUpCompanyForm">
+            <span class="p-float-label p-input ">
+                <input id="company-name-input" pInputText
+                       type="text"
+                       name="name"
+                       formControlName="name">
+                <label for="company-name-input">{{'company.name' | translate}}</label>
+            </span>
+            <div class="p-error">
+                <span *ngIf="signUpCompanyForm.get('name')?.hasError('required') && validated">*{{'login.error.required' | translate}}</span>
+            </div>
+
+            <span class="p-float-label p-input ">
+                <input id="company-nip-input" pInputText
+                       type="text"
+                       name="nip"
+                       formControlName="nip">
+                <label for="company-nip-input">{{'company.nip' | translate}}</label>
+            </span>
+            <div class="p-error">
+                <span *ngIf="signUpCompanyForm.get('nip')?.hasError('required') && validated">*{{'login.error.required' | translate}}</span>
+            </div>
+
+            <div class="address-container">
+                <span class="p-float-label p-input" style="width: 60%">
+                    <input id="company-street-input" pInputText
+                           type="text"
+                           name="street"
+                           formControlName="street">
+                    <label for="company-street-input">{{'company.street' | translate}}</label>
+                </span>
+                <div class="p-error">
+                    <span *ngIf="signUpCompanyForm.get('street')?.hasError('required') && validated">*{{'login.error.required' | translate}}</span>
+                </div>
+                <span class="p-float-label p-input" style="width: 40%">
+                    <input id="company-homeNumber-input" pInputText
+                           type="text"
+                           name="homeNumber"
+                           formControlName="homeNumber">
+                    <label for="company-homeNumber-input">{{'company.homeNumber' | translate}}</label>
+                </span>
+                <div class="p-error">
+                    <span *ngIf="signUpCompanyForm.get('homeNumber')?.hasError('required') && validated">*{{'login.error.required' | translate}}</span>
+                </div>
+            </div>
+
+            <div class="address-container">
+                <span class="p-float-label p-input" style="width: 40%">
+                    <input id="company-city-input" pInputText
+                           type="text"
+                           name="city"
+                           formControlName="city">
+                    <label for="company-city-input">{{'company.city' | translate}}</label>
+                </span>
+                <div class="p-error">
+                    <span *ngIf="signUpCompanyForm.get('city')?.hasError('required') && validated">*{{'login.error.required' | translate}}</span>
+                </div>
+                <span class="p-float-label p-input" style="width: 60%">
+                    <input id="company-zipCode-input" pInputText
+                           type="text"
+                           name="zipCode"
+                           formControlName="zipCode">
+                    <label for="company-zipCode-input">{{'company.zipCode' | translate}}</label>
+                </span>
+                <div class="p-error">
+                    <span *ngIf="signUpCompanyForm.get('zipCode')?.hasError('required') && validated">*{{'login.error.required' | translate}}</span>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="card">
+    <h6  style="margin-bottom: 0">{{'registration.loginData' | translate}}</h6>
+    <div class="container">
+        <form [formGroup]="loginDataForm">
+                <span class="p-float-label p-input ">
+                    <input id="company-login-input" pInputText
+                           type="text"
+                           name="login"
+                           formControlName="login">
+                    <label for="company-login-input">{{'registration.email' | translate}}</label>
+                </span>
+            <div class="p-error">
+                <span *ngIf="loginDataForm.get('login')?.hasError('required') && validated">*{{'login.error.required' | translate}}</span>
+            </div>
+
+            <span class="p-float-label p-input ">
+                <p-password id="company-password-input" class="p-password"
+                            [toggleMask]="true"
+                            formControlName="password"></p-password>
+                <label for="company-password-input">{{'registration.password' | translate}}</label>
+            </span>
+            <div class="p-error">
+                <span *ngIf="loginDataForm.get('password')?.hasError('required') && validated">*{{'login.error.required' | translate}}</span>
+            </div>
+
+            <span class="p-float-label p-input ">
+                <p-password id="company-repeatPassword-input"
+                            [toggleMask]="true"
+                            formControlName="repeatPassword"></p-password>
+                <label for="company-repeatPassword-input">{{'registration.repeatPassword' | translate}}</label>
+            </span>
+            <div class="p-error">
+                <span *ngIf="loginDataForm.get('repeatPassword')?.hasError('required') && validated">*{{'login.error.required' | translate}}</span>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="register-btn-container">
+    <button class="mb-4"
+            pButton pRipple
+            (click)="save()"
+            label="{{'common.save' | translate}}"></button>
+    <button class="mb-4 p-button-secondary"
+            pButton pRipple
+            (click)="cancel()"
+            label="{{'common.cancel' | translate}}"></button>
+</div>

@@ -1,0 +1,73 @@
+{
+    "common": {
+        "next": "Dalej",
+        "save": "Zapisz",
+        "cancel": "Anuluj",
+        "person": "Osoba fizyczna",
+        "company": "Firma",
+        "error": "Coś poszło nie tak :("
+    },
+    "login": {
+        "login": "Login lub email",
+        "password": "Hasło",
+        "google": "Google",
+        "facebook": "Facebook",
+        "identityProviderOption": "lub zaloguj się przy użyciu swojego konta",
+        "loginBtn": "Zaloguj",
+        "registerBtn": "Rejestracja",
+        "error": {
+            "required": "Pole wymagane",
+            "wrongLoginOrPassword": "Nieprawidłowy login lub hasło"
+        }
+    },
+    "registration": {
+        "title": "Rejestracja",
+        "accountType": "Typ konta",
+        "individualData": "Dane osobowe",
+        "companyData": "Dane firmy",
+        "loginData": "Dane logowania",
+        "email": "Email",
+        "password": "Hasło",
+        "repeatPassword": "Powtórz hasło",
+        "accountType": "Typ konta",
+        "error": {
+            "matchPassword": "Hasła muszą być takie same"
+        }
+    },
+    "uploadContract": {
+        "call": "Sprawdź swoją umowę!",
+        "uploadFile": "Załaduj plik",
+        "dragAndDrop": "Pzreciągnij lub wybierz pliki",
+        "description": "Opis",
+        "descriptionPlaceholder": "Jeśli mamy zwrócić na coś uwagę, tu możesz to opisać",
+
+        "chooseClientHeader": "Wybór użytkownika",
+        "clientTypeHeader": "Wybierz, jak chcesz kontynuować",
+        "clientTypeHeaderDesc1": "Działasz jako osoba fizyczna czy reprezentujesz firmę?",
+        "clientTypeHeaderDesc2": "Wybierz odpowiednią opcję, aby dopasować proces do swoich potrzeb",
+
+        "loginHeader": "Zaloguj się, aby mieć pełny dostęp do swoich analiz",
+        "loginHeaderDesc1": "Dzięki logowaniu zyskasz dostęp do wszystkich swoich analiz – także tych historycznych.",
+        "loginHeaderDesc2": "Śledź postęp i wracaj do wcześniejszych wyników w każdej chwili!",
+        "continueAsGuest": "Jednak wolę jako gość",
+
+        "firstname": "Imię",
+        "surname": "Nazwisko",
+        "phone": "Telefon",
+        "email": "Email"
+    },
+
+    "person": {
+        "name": "Imię",
+        "surname": "Nazwisko"
+    },
+    "company": {
+        "name": "Nazwa firmy",
+        "nip": "NIP",
+        "headquater": "Adres siedziby",
+        "city": "Miejscowość",
+        "street": "Ulica",
+        "zipCode": "Kod pocztowy",
+        "homeNumber": "Numer domu"
+    }
+}
