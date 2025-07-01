@@ -67,7 +67,7 @@ docker-build-ui:
     - ls -la app-demo-ui/dist/app-demo-ui
   script:
     - echo "Building Docker image for UI..."
-    - docker build -t $IMAGE_UI_NAME f ./app-demo-ui/Dockerfile .
+    - docker build -t $IMAGE_UI_NAME -f ./app-demo-ui/Dockerfile .
     - echo "Docker image for UI built and tagged as $IMAGE_UI_NAME"
     - docker push $IMAGE_UI_NAME
   needs:
