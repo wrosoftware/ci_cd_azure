@@ -20,7 +20,7 @@ maven-build:
     - mvn -f app-demo-api/ clean package -DskipTests
   artifacts:
     paths:
-      - modules/app-demo-api/target/*.jar
+      - app-demo-api/target/*.jar
   only:
     - main
 
@@ -34,7 +34,7 @@ docker-build-backend:
     - docker login registry.gitlab.com -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
   script:
     - echo "Building Docker image..."
-    - docker build -t $IMAGE_BACKEND_NAME -f Dockerfile-backend .
+    - docker build -t $IMAGE_BACKEND_NAME -f ./app-demo-api/Dockerfile .
     - echo "Docker image built and tagged as $IMAGE_BACKEND_NAME"
     - docker push $IMAGE_BACKEND_NAME
   needs:
@@ -53,7 +53,7 @@ npm-build:
   artifacts:
     paths:
       - app-demo-ui/dist
-      - app-demo-ui/cpt_nginx.conf
+      - app-demo-ui/conf/proxy_nginx.conf
   only:
     - main
 
@@ -67,7 +67,7 @@ docker-build-ui:
     - ls -la app-demo-ui/dist/app-demo-ui
   script:
     - echo "Building Docker image for UI..."
-    - docker build -f Dockerfile-ui -t $IMAGE_UI_NAME .
+    - docker build -t $IMAGE_UI_NAME f ./app-demo-ui/Dockerfile .
     - echo "Docker image for UI built and tagged as $IMAGE_UI_NAME"
     - docker push $IMAGE_UI_NAME
   needs:
