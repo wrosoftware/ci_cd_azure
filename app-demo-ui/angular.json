@@ -64,9 +64,9 @@
                 },
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",
-//                    "options": {
-//                        "proxyConfig": "proxy_nginx.json"
-//                    },
+                    "options": {
+                        "proxyConfig": "proxy.conf.json"
+                    },
                     "configurations": {
                         "prod": {
                             "buildTarget": "app-demo-ui:build:prod"
