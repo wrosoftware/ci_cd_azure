@@ -25,6 +25,7 @@ maven-build:
   only:
     - main
 
+      
 docker-build-backend:
   stage: build-backend
   image: docker:latest
