@@ -1,0 +1,24 @@
+server:
+  port: 8080
+
+
+application:
+  name: CI/CD Azure Demo
+  version: ${APP_VERSION:1.0-dev}
+
+spring:
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+sftp:
+  location:
+    temp: ${SFTP_TEMP_PATH}
+
+auth:
+  token-secret: ${TOKEN_SECRET_KEY}
