@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-demo-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-demo-ui
+  template:
+    metadata:
+      labels:
+        app: app-demo-ui
+    spec:
+      containers:
+        - name: app-demo-ui
+          image: registry.gitlab.com/wrosoftware/ci_cd_azure:main-ui
+          ports:
+            - containerPort: 80
+      imagePullSecrets:
+        - name: gitlab-registry-secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-demo-ui-service
+spec:
+  selector:
+    app: app-demo-ui
+  ports:
+    - protocol: TCP
+      port: 80
+  type: LoadBalancer

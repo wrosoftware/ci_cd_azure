@@ -1,0 +1,6 @@
+FROM nginx:alpine
+COPY modules/app-demo-ui/app-demo-ui-angular/dist/app-demo-ui-angular /usr/share/nginx/html
+COPY modules/app-demo-ui/app-demo-ui-angular/proxy_nginx.conf /etc/nginx/conf.d/
+RUN ls -la /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

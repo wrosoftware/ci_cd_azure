@@ -1,0 +1,4 @@
+FROM openjdk:21-oracle
+WORKDIR /app
+COPY /modules/app-demo-api/target/*.jar ./app.jar
+ENTRYPOINT ["java", "-jar", "app.jar"]
