@@ -18,7 +18,7 @@ maven-build:
   stage: build-backend
   image: maven:3.9.9-eclipse-temurin-21-alpine
   script:
-    - mvn f app-demo-api/ clean package -Pbuild-mvn -DskipTests
+    - mvn f app-demo-api/ clean package -DskipTests
   artifacts:
     paths:
       - modules/app-demo-api/target/*.jar
@@ -46,14 +46,14 @@ npm-build:
   stage: build-ui
   image: node:18
   before_script:
-    - cd modules/app-demo-ui/app-demo-ui-angular
+    - cd app-demo-ui
   script:
     - npm i --f
     - npm run build --prod
   artifacts:
     paths:
-      - modules/app-demo-ui/app-demo-ui-angular/dist
-      - modules/app-demo-ui/app-demo-ui-angular/cpt_nginx.conf
+      - app-demo-ui/dist
+      - app-demo-ui/cpt_nginx.conf
   only:
     - main
 
@@ -64,7 +64,7 @@ docker-build-ui:
     - docker:dind
   before_script:
     - docker login registry.gitlab.com -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
-    - ls -la modules/app-demo-ui/app-demo-ui-angular/dist/app-demo-ui-angular
+    - ls -la app-demo-ui/dist/app-demo-ui
   script:
     - echo "Building Docker image for UI..."
     - docker build -f Dockerfile-ui -t $IMAGE_UI_NAME .
