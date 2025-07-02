@@ -7,7 +7,7 @@ variables:
   DOCKER_DRIVER: overlay2
   IMAGE_BACKEND_NAME: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG-backend
   IMAGE_UI_NAME: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG-ui
-  APP_VERSION: $CI_COMMIT_REF_SLUG-$CI_COMMIT_REF_SLUG
+  APP_VERSION: $CI_COMMIT_REF_SLUG
 
 stages:
   - build
@@ -37,6 +37,7 @@ docker-build-backend:
     - docker build -t $IMAGE_BACKEND_NAME -f ./app-demo-api/Dockerfile .
     - echo "Docker image built and tagged as $IMAGE_BACKEND_NAME"
     - docker push $IMAGE_BACKEND_NAME
+    - 
   needs:
     - maven-build
   only:
@@ -84,7 +85,7 @@ deploy:
     - echo "Logging in to Azure..."
     - az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET --tenant $AZURE_TENANT_ID
     - echo "Getting AKS credentials..."
-    - az aks get-credentials --resource-group ci_cd_demo_aks_group --name ci_cd_demo_aks
+    - az aks get-credentials --resource-group ci_cd_demo_group --name ci_cd_demo_aks
     - |
       if ! kubectl get secret gitlab-registry-secret > /dev/null 2>&1; 
       then kubectl create secret docker-registry gitlab-registry-secret  --docker-server=registry.gitlab.com  --docker-username=$CI_REGISTRY_USER --docker-password=$CI_REGISTRY_PASSWORD  --docker-email=$GITLAB_USER_EMAIL 
