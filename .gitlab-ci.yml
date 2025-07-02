@@ -92,12 +92,18 @@ deploy:
        echo "Secret 'gitlab-registry-secret' already exists, skipping creation."
       fi
   script:
+    - echo "Applying secrets..."
+    - kubectl apply -f postgres-secrets.yml
+    - kubectl apply -f app-secrets.yml
+    - echo "Deploying database..."
+    - kubectl apply -f db-deployment.yml
+
     - echo "Deploying backend..."
-    - kubectl apply -f deployment-backend.yaml
+    - kubectl apply -f deployment-backend.yml
     - kubectl set image deployment/app-demo-api app-demo-api=$IMAGE_BACKEND_NAME
     - kubectl rollout status deployment/app-demo-api
     - echo "Deploying frontend..."
-    - kubectl apply -f deployment-ui.yaml
+    - kubectl apply -f deployment-ui.yml
     - kubectl set image deployment/app-demo-ui app-demo-ui=$IMAGE_UI_NAME
     - kubectl rollout status deployment/app-demo-ui
   needs:

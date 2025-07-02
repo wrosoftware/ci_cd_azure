@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-demo-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-demo-api
+  template:
+    metadata:
+      labels:
+        app: app-demo-api
+    spec:
+      containers:
+        - name: app-demo-api
+          image: registry.gitlab.com/wrosoftware/ci_cd_azure:main-backend
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DB_URL
+              value: jdbc:postgresql://postgres:5432/cicddemo  # dostosuj nazwę hosta i bazy
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: password
+            - name: SFTP_TEMP_PATH
+              value: /tmp/sftp
+            - name: TOKEN_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: app-secrets
+                  key: token-secret
+      imagePullSecrets:
+        - name: gitlab-registry-secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-demo-api-service
+spec:
+  selector:
+    app: app-demo-api
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: LoadBalancer
