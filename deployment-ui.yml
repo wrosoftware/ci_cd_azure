@@ -23,7 +23,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: app-demo-ui-service
+  name: app-demo-ui
 spec:
   selector:
     app: app-demo-ui
