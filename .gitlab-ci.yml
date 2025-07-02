@@ -37,7 +37,6 @@ docker-build-backend:
     - docker build -t $IMAGE_BACKEND_NAME -f ./app-demo-api/Dockerfile .
     - echo "Docker image built and tagged as $IMAGE_BACKEND_NAME"
     - docker push $IMAGE_BACKEND_NAME
-    - 
   needs:
     - maven-build
   only:
