@@ -111,3 +111,4 @@ deploy:
     - docker-build-ui
   only:
     - main
+    
